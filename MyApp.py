@@ -18,6 +18,10 @@ if not os.path.exists("chroma_db_housing/chroma.sqlite3"):
     with zipfile.ZipFile("chroma_db_housing.zip", "r") as zip_ref:
         zip_ref.extractall(".")
 
+if os.path.exists("chroma_db_housing/chroma.sqlite3"):
+    st.success("Vectorstore extracted successfully.")
+else:
+    st.error("Vectorstore not found after extraction.")
 # Load environment variables
 vectorstore = Chroma(persist_directory=persistent_directory, embedding_function=local_embeddings)
 # Initialize Google Gemini AI
@@ -48,7 +52,7 @@ def query_rag(question: str):
     st.session_state.messages.pop()
     st.session_state.messages.append(HumanMessage(question))
     ai_message = AIMessage(content=response.content)
-    st.session_state.messages.append(ai_message)
+    st.session_state.messages.append(combined_input + ai_message)
     
 
     return response.content
