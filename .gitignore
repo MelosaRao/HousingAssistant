@@ -2,4 +2,4 @@
 .env
 rag.py
 CustomText.py
-.chroma_db_housing
+.chroma_db_housing.zip

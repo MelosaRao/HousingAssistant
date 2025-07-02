@@ -12,12 +12,6 @@ load_dotenv()
 persistent_directory = os.path.join(os.getcwd(), "chroma_db_housing")
 local_embeddings = GoogleGenerativeAIEmbeddings(model="models/embedding-001")
 
-import zipfile
-
-if not os.path.exists("chroma_db_housing/chroma.sqlite3"):
-    with zipfile.ZipFile("chroma_db_housing.zip", "r") as zip_ref:
-        zip_ref.extractall(".")
-
 if os.path.exists("chroma_db_housing/chroma.sqlite3"):
     st.success("Vectorstore extracted successfully.")
 else:
