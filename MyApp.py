@@ -49,10 +49,10 @@ def query_rag(question: str):
     )
     st.session_state.messages.append(HumanMessage(content=combined_input))
     response = llm.invoke(st.session_state.messages)
-    st.session_state.messages.pop()
+    #st.session_state.messages.pop()
     st.session_state.messages.append(HumanMessage(question))
     ai_message = AIMessage(content=response.content)
-    st.session_state.messages.append(combined_input + ai_message)
+    st.session_state.messages.append(ai_message)
     
 
     return response.content
