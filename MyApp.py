@@ -27,6 +27,14 @@ vectorstore = Chroma(persist_directory=persistent_directory, embedding_function=
 # Initialize Google Gemini AI
 llm = ChatGoogleGenerativeAI(model="gemini-2.0-flash")
 
+if st.button("Test Vectorstore Content"):
+    docs = vectorstore.as_retriever().invoke("Randolph")
+    st.write(f"Retrieved {len(docs)} documents")
+    for doc in docs:
+        st.markdown(f"**Source:** {doc.metadata.get('source', 'unknown')}")
+        st.markdown(doc.page_content[:300] if doc.page_content else "[EMPTY]")
+
+
 # Initialize chat history
 if "messages" not in st.session_state:
     st.session_state.messages = [SystemMessage(content="You are a helpful AI Housing assistant of Duke University Students.")]
