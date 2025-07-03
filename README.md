@@ -1,7 +1,7 @@
 # HousingAssistant
 
 # Duke Housing Chatbot
-<video width="630" height="300" src="streamlit-MyApp-2025-07-02-00-07-30.webm"></video>
+[🎥 Watch Demo Video](./streamlit-MyApp-2025-07-02-00-07-30.webm)
 
 ## Overview
 This is a **Streamlit-based RAG chatbot** that helps users navigate Duke University housing information. It integrates **ChromaDB** for retrieval-augmented responses and provides **context-aware answers** based on stored documents.
