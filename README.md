@@ -1,4 +1,3 @@
-# HousingAssistant
 
 # Duke Housing Chatbot
 
